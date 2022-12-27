@@ -6,6 +6,7 @@ package com.afifpermana.anggota.service.service;
 
 import com.afifpermana.anggota.service.entity.Anggota;
 import com.afifpermana.anggota.service.repository.AnggotaRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,16 @@ public class AnggotaService {
     
     public Anggota findAnggotaById(Long anggotaId){
         return anggotaRepository.findByAnggotaId(anggotaId);
+    }
+    public List<Anggota> getAllAnggota(){
+        return anggotaRepository.findAll();
+    }
+    
+    public void deleteAnggota(Long anggotaId){
+       anggotaRepository.deleteById(anggotaId);
+    }
+    
+    public Anggota updateAnggota(Anggota anggota){
+        return anggotaRepository.save(anggota);
     }
 }
